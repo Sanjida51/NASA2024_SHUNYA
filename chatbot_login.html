@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimateGPT Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General and Reset Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container Styles */
+        .container {
+            background-color: #fff;
+            width: 100%; /* Reduced width */
+            max-width: 1200px; /* Set max-width to 800px */
+            border-radius: 15px;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 5px 20px; /* Reduced padding to decrease height */
+            position: relative;
+        }
+
+        /* Background Shape Styles */
+        .background-shape {
+            position: absolute;
+            top: -40px; /* Adjusted position */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px; /* Reduced size */
+            height: 120px; /* Reduced size */
+            background-color: #44c767;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Image Styles */
+        .image-wrapper {
+            margin-top: -30px; /* Adjusted margin */
+        }
+
+        .image-wrapper img {
+            width: 70%; /* Adjusted image width */
+            max-width: 300px; /* Set max-width to ensure image doesn't stretch */
+            border-radius: 10px;
+        }
+
+        /* Text Content Styles */
+        .text-content h2 {
+            margin-top: 10px; /* Reduced margin */
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .text-content p {
+            color: #777;
+            margin: 5px 0 10px; /* Reduced margin */
+            font-size: 1em;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #43e97b, #38f9d7);
+            color: white;
+            padding: 8px 20px; /* Reduced padding for a smaller button */
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9em; /* Reduced font size */
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #38f9d7, #43e97b);
+        }
+
+        /* Link Styles */
+        .links {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .links a {
+            color: #38f9d7;
+            text-decoration: none;
+            margin-left: 3px;
+            font-weight: 700;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-shape"></div>
+        <div class="image-wrapper">
+            <img src="./images/story.png" alt="ClimateGPT Stories">
+        </div>
+        <div class="text-content">
+            <h2>Hear <span style="color: #44c767;">stories</span> from ClimateGPT</h2>
+            <p>Share and enjoy your climate stories with other people.</p>
+        </div>
+        <a href="login.html">
+            <button class="btn">Log In</button>
+        </a>
+        <div class="links">
+            <p>Doesn't Have Account? <a href="register.html">Create Account</a></p>
+        </div>
+    </div>
+</body>
+</html>

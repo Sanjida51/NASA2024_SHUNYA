@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ClimateGPT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(270deg, #43e97b, #38f9d7, #845ec2, #d65db1);
+            background-size: 800% 800%;
+            animation: gradientBackground 10s ease infinite;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #44c767;
+        }
+
+        input {
+            width: 90%; /* Reduced width to add space from the edges */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #43e97b, #38f9d7);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #38f9d7, #43e97b);
+        }
+
+        .links {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: #44c767;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="login_process.php" method="POST"> <!-- You need to handle this server-side -->
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Log In</button>
+        </form>
+        <div class="links">
+            <p>Don't have an account? <a href="register.html">Create Account</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="design.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div class="container">
+        <div class="content">
+            <div class="voice-assistant">
+                <h1>Voice Assistant</h1>
+                <textarea id="userInput" placeholder="Ask me anything..."></textarea>
+                <button id="submitBtn">Ask</button>
+                <div id="response" class="response"></div>
+                <div id="typingIndicator" class="typing-indicator hidden">Typing...</div>
+            </div>
+            <div class="assistant-image">
+                <img src="v.jpg" alt="Voice Assistant" />
+            </div>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Alerts - MirrorOfClimate</title>
+    <style>
+        /* General and Background Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('alart.jpg'); /* Replace with your actual background image */
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(5px); /* Blurred effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            <!-- background-repeat: no-repeat; -->
+        }
+
+        /* Section Styles */
+        #climate-alerts {
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        #alert-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .alert-item {
+            background-color: #FFC107;
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Styles */
+        @media only screen and (max-width: 576px) {
+            body {
+                padding: 10px; /* Add some padding on small screens */
+                height: auto; /* Allow content to scroll */
+            }
+
+            #climate-alerts {
+                padding: 20px; /* Reduce padding on small screens */
+                max-width: 100%; /* Allow full width on small screens */
+                margin-top: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem; /* Smaller font size for better readability */
+            }
+
+            p {
+                font-size: 1rem; /* Smaller font size for better readability */
+            }
+
+            .btn {
+                padding: 8px 16px; /* Adjust button padding */
+                font-size: 0.9rem; /* Adjust font size */
+                width: 100%; /* Full-width button on small screens */
+                margin-top: 10px; /* Add margin to separate elements */
+            }
+
+            .alert-item {
+                padding: 10px; /* Reduce padding for alerts */
+                font-size: 0.9rem; /* Adjust font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Climate Alerts Section -->
+    <section id="climate-alerts" class="section">
+        <div class="container">
+            <h2>Climate Alerts in Your Area</h2>
+            <p>Stay informed about critical climate events happening near you.</p>
+            <button onclick="getClimateAlertsForUser()" class="btn">Check Climate Alerts</button>
+            <div id="alert-container">
+                <!-- Alerts will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Function to get the user's location
+        function getLocation() {
+            return new Promise((resolve, reject) => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                } else {
+                    reject("Geolocation is not supported by this browser.");
+                }
+            });
+        }
+
+        // Function to fetch climate alerts based on user's location
+        async function getClimateAlerts(lat, lon) {
+            const apiKey = 'YOUR_API_KEY';  // Replace with your actual API key
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`; // Update the URL according to the API documentation
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                // Assuming the API returns alerts in a property called 'alerts'
+                return data.alerts || [];  
+            } catch (error) {
+                console.error("Error fetching climate alerts:", error);
+                return [];
+            }
+        }
+
+        // Function to display alerts in the alert container
+        function displayAlerts(alerts) {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = '';  // Clear previous alerts
+
+            if (alerts.length === 0) {
+                alertContainer.innerHTML = '<p>No climate alerts in your area.</p>';
+                return;
+            }
+
+            alerts.forEach(alert => {
+                const alertElement = document.createElement('div');
+                alertElement.className = 'alert-item';
+                alertElement.innerHTML = `
+                    <h3>${alert.event}</h3>
+                    <p>${alert.description}</p>
+                    <p><strong>Starts:</strong> ${new Date(alert.start * 1000).toLocaleString()}</p>
+                    <p><strong>Ends:</strong> ${new Date(alert.end * 1000).toLocaleString()}</p>
+                `;
+                alertContainer.appendChild(alertElement);
+            });
+        }
+
+        // Function to get and display alerts
+        async function getClimateAlertsForUser() {
+            try {
+                const position = await getLocation();
+                const alerts = await getClimateAlerts(position.coords.latitude, position.coords.longitude);
+                displayAlerts(alerts);
+            } catch (error) {
+                console.error("Error getting or displaying climate alerts:", error);
+                const alertContainer = document.getElementById('alert-container');
+                alertContainer.innerHTML = `<p>${error}</p>`;
+            }
+        }
+
+        // Request permission for notifications
+        if (Notification.permission !== 'denied' || Notification.permission === 'default') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    // The user has granted permission for notifications
+                }
+            });
+        }
+    </script>
+</body>
+</html>

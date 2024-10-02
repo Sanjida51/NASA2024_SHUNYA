@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Awareness - Tips Slider</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f8ff;
+        }
+
+        h1 {
+            color: #28a745;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Slider container */
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Image slide styling */
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Tips text over the image */
+        .tip-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Dots indicator */
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .active {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Climate Awareness Tips</h1>
+
+    <!-- Slider container -->
+    <div class="slider-container">
+        <div class="slides">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="0.jpeg" alt="Tip 1">
+                <div class="tip-text">Welcome To Flood Safety</div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="1.jpeg" alt="Tip 2">
+                <div class="tip-text">Know Your Area</div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="2.jpeg" alt="Tip 3">
+                <div class="tip-text">Stay Informed</div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="3.jpeg" alt="Tip 4">
+                <div class="tip-text">Message for Image 4</div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="slide">
+                <img src="4.jpeg" alt="Tip 5">
+                <div class="tip-text">Create An Emergency Kit</div>
+            </div>
+            <!-- Slide 6 -->
+            <div class="slide">
+                <img src="5.jpeg" alt="Tip 6">
+                <div class="tip-text">Plan Your Escape</div>
+            </div>
+            <!-- Slide 7 -->
+            <div class="slide">
+                <img src="6.jpeg" alt="Tip 7">
+                <div class="tip-text">Stay Away From Water</div>
+            </div>
+            <!-- Slide 8 -->
+            <div class="slide">
+                <img src="7.jpeg" alt="Tip 8">
+                <div class="tip-text">After the Flood</div>
+            </div>
+            <!-- Slide 9 -->
+            <div class="slide">
+                <img src="8.jpeg" alt="Tip 9">
+                <div class="tip-text">Stay Safe,Stay Chill</div>
+            </div>
+            <!-- Slide 10 -->
+            <div class="slide">
+                <img src="9.jpeg" alt="Tip 10">
+                <div class="tip-text">Thank You For Being With Us</div>
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="nav-buttons">
+            <div class="prev" onclick="moveSlide(-1)">&#10094;</div>
+            <div class="next" onclick="moveSlide(1)">&#10095;</div>
+        </div>
+    </div>
+
+    <!-- Dots container -->
+    <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+        <span class="dot" onclick="currentSlide(10)"></span>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function moveSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n - 1);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+
+            for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                slides[slideIndex].style.display = "block";
+                dots[slideIndex].className += " active";
+            }
+        
+
+        // Auto slide every 5 seconds
+        setInterval(function() {
+            moveSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>
+

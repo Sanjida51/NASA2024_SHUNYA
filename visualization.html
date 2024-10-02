@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Visualization - MirrorOfClimate</title>
+    <style>
+       
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: 0;
+        }
+
+        /* Main content container */
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            padding-top: 20px; /* Add some space from the top */
+        }
+
+        /* Title styling - center it at the top */
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #FFD700;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Subtitle styling - Optional, can be removed or adjusted */
+        p {
+            font-size: 1.5em;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #FFD700;
+        }
+
+        /* Controls container at the bottom */
+        .controls-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Buttons styling */
+        .control-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .control-button:hover {
+            transform: scale(1.1);
+            background-color: #1e7e34;
+        }
+
+        /* Play/pause button icons */
+        .play-icon:before {
+            content: '►';
+            font-size: 1.2em;
+        }
+
+        .pause-icon:before {
+            content: '❚❚';
+            font-size: 1.2em;
+        }
+
+        /* Animation for fading in content */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video -->
+    <video id="climateVideo" class="video-bg" autoplay loop>
+        <source src="story.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Dark overlay for text clarity -->
+    <div class="overlay"></div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Climate Change Visualization</h1>
+    </div>
+
+    <!-- Video controls at the bottom -->
+    <div class="controls-container">
+        <button class="control-button" id="backwardBtn">⏪</button>
+        <button class="control-button play-icon" id="playPauseBtn"></button>
+        <button class="control-button" id="forwardBtn">⏩</button>
+    </div>
+
+    <script>
+        // Get video element and buttons
+        const video = document.getElementById('climateVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const backwardBtn = document.getElementById('backwardBtn');
+
+        // Play/Pause video
+        playPauseBtn.addEventListener('click', function () {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.classList.remove('play-icon');
+                playPauseBtn.classList.add('pause-icon');
+            } else {
+                video.pause();
+                playPauseBtn.classList.remove('pause-icon');
+                playPauseBtn.classList.add('play-icon');
+            }
+        });
+
+        // Fast forward video by 10 seconds
+        forwardBtn.addEventListener('click', function () {
+            video.currentTime += 10;
+        });
+
+        // Rewind video by 10 seconds
+        backwardBtn.addEventListener('click', function () {
+            video.currentTime -= 10;
+        });
+
+        // Initially pause the video if autoplay doesn't work
+        window.onload = function () {
+            if (video.paused) {
+                playPauseBtn.classList.add('play-icon');
+            } else {
+                playPauseBtn.classList.add('pause-icon');
+            }
+        };
+    </script>
+</body>
+</html>

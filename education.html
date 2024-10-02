@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Education Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 300px;
+            background-color: #2c3e50;
+            height: 100vh;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .sidebar ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            cursor: pointer;
+            padding-left: 10px;
+        }
+
+        .sidebar ul li a:hover {
+            color: #1abc9c;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .dropdown-content li {
+            margin-bottom: 10px;
+        }
+
+        .dropdown-content li a {
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        .dropdown-content li a:hover {
+            color: #1abc9c;
+        }
+
+        /* Main content styles */
+        .main-content {
+            margin-left: 320px;
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #fff;
+            min-height: 100vh;
+        }
+
+        .main-content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Climate Education</h2>
+        <ul>
+            <!-- Climate Change Overview Dropdown -->
+            <li>
+                <a onclick="toggleDropdown('climate-change')">1) Climate Change Overview
+                    <span class="dropdown-icon">▼</span>
+                </a>
+                <ul class="dropdown-content" id="climate-change">
+                    <li><a href="#" onclick="loadContent('what-is-climate')">1.1) What is Climate?</a></li>
+                    <li><a href="#" onclick="loadContent('global-warming')">1.2) Global Warming</a></li>
+                    <li><a href="#" onclick="loadContent('key-concepts')">1.3) Key Environmental Concepts</a></li>
+                </ul>
+            </li>
+
+            <!-- Causes of Climate Change Dropdown -->
+            <li>
+                <a onclick="toggleDropdown('causes')">2) Causes of Climate Change
+                    <span class="dropdown-icon">▼</span>
+                </a>
+                <ul class="dropdown-content" id="causes">
+                    <li><a href="#" onclick="loadContent('human-causes')">2.1) Human Causes</a></li>
+                    <li><a href="#" onclick="loadContent('natural-causes')">2.2) Natural Causes</a></li>
+                </ul>
+            </li>
+
+            <!-- Effects of Climate Change Dropdown -->
+            <li>
+                <a onclick="toggleDropdown('effects')">3) Effects of Climate Change
+                    <span class="dropdown-icon">▼</span>
+                </a>
+                <ul class="dropdown-content" id="effects">
+                    <li><a href="#" onclick="loadContent('ecosystem')">3.1) Ecosystem</a></li>
+                    <li><a href="#" onclick="loadContent('weather-patterns')">3.2) Weather Patterns</a></li>
+                    <li><a href="#" onclick="loadContent('biodiversity')">3.3) Biodiversity</a></li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a onclick="toggleDropdown('resources')">4) Resource Type
+                    <span class="dropdown-icon">▼</span>
+                </a>
+                <ul class="dropdown-content" id="resources">
+                    <li><a href="#" onclick="loadContent('articles-blogs')">4.1) Articles or Blogs</a></li>
+                    <li><a href="#" onclick="loadContent('graphical-visualizations')">4.2) Graphical Visualizations</a>
+                    </li>
+                    <li><a href="#" onclick="loadContent('reports-studies')">4.3) Reports and Studies</a></li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a onclick="toggleDropdown('interactive')">5) Interactive Features
+                    <span class="dropdown-icon">▼</span>
+                </a>
+                <ul class="dropdown-content" id="interactive">
+                    <li><a href="#" onclick="loadContent('quiz')">5.1) Quiz</a></li>
+                    <li><a href="#" onclick="loadContent('user-generated')">5.2) User Generated Content</a></li>
+                    <li><a href="#" onclick="loadContent('case-studies')">5.3) Case Studies</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="main-content" id="main-content">
+        <h1>Welcome to Climate Education</h1>
+        <p>Explore the topics on the left sidebar to learn more about climate change, its causes, effects, and the
+            resources available to understand it better. Dive into interactive features for a more engaging learning
+            experience.</p>
+    </div>
+
+    <script>
+
+        function toggleDropdown(id) {
+            const dropdownContent = document.getElementById(id);
+
+
+            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                dropdownContent.style.display = "block";
+            } else {
+                dropdownContent.style.display = "none";
+            }
+        }
+
+
+        function loadContent(contentId) {
+            const mainContent = document.getElementById('main-content');
+
+            let content = '';
+            switch (contentId) {
+                case 'what-is-climate':
+    content = `
+        <div style="background-image: url('bg.jpg'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); color: black;">
+            <h1 style="font-size: 28px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">What is Climate?</h1>
+            <p style="font-size: 16px; line-height: 1.6; color: black; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">
+                Climate refers to the long-term patterns of temperature, humidity, wind, and precipitation in a region. Unlike weather, which changes daily, climate is observed over decades or centuries.
+                 More rigorously, it is the mean and variability of meteorological variables over a time spanning from months to millions of years. Some of the meteorological variables that are commonly
+                 measured are temperature, humidity, atmospheric pressure, wind, and precipitation.
+            </p>
+            <div style="text-align: center; margin-top: 20px;">
+                <img src="https://cdn2.vectorstock.com/i/1000x1000/92/41/world-climate-zones-map-geographic-vector-29179241.jpg" alt="Climate Map" style="width: 100%; max-width: 400px; border-radius: 10px; margin-bottom: 10px;">
+                <p style="font-size: 14px; color: black;">An illustration of global climate zones.</p>
+            </div>
+            <div style="margin-top: 20px;">
+                <h2 style="font-size: 22px; color: black; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">Key Climate Characteristics:</h2>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                    <li style="font-size: 16px; color: black;">Average Temperature: The mean temperature over a period.</li>
+                    <li style="font-size: 16px; color: black;">Precipitation: The amount of rain, snow, sleet, etc. that falls in a given period.</li>
+                    <li style="font-size: 16px; color: black;">Seasonal Variations: Changes in climate patterns throughout the year.</li>
+                </ul>
+            </div>
+        </div>`;
+    break;
+
+
+                case 'global-warming':
+                    content = `<h1>Global Warming</h1>
+                               <p>Global warming is the gradual increase in Earth's average temperature due to the buildup of greenhouse gases like carbon dioxide. Human activities, such as burning fossil fuels and deforestation, are the main contributors.</p>`;
+                    break;
+                case 'key-concepts':
+                    content = `<h1>Key Environmental Concepts</h1>
+                               <ul>
+                                   <li><strong>Greenhouse Effect:</strong> The trapping of heat in Earth’s atmosphere by greenhouse gases, keeping the planet warm enough for life.</li>
+                                   <li><strong>Carbon Footprint:</strong> The total amount of greenhouse gases emitted by human activities, measured in carbon dioxide equivalents.</li>
+                                   <li><strong>Sustainability:</strong> Meeting present needs without compromising future generations' ability to meet theirs, focusing on environmental, economic, and social balance.</li>
+                               </ul>`;
+                    break;
+                case 'human-causes':
+                    content = `<h1>Human Causes of Climate Change</h1>
+                               <p>Human activities are the primary drivers of recent climate change. Key contributors include:</p>
+                               <ul>
+                                   <li><strong>Burning Fossil Fuels:</strong> Coal, oil, and natural gas release large amounts of carbon dioxide (CO₂) and other greenhouse gases.</li>
+                                   <li><strong>Deforestation:</strong> Clearing forests reduces Earth's ability to absorb CO₂, contributing to the greenhouse effect.</li>
+                                   <li><strong>Industrial Activities:</strong> Factories and agriculture emit greenhouse gases like methane and nitrous oxide.</li>
+                                   <li><strong>Transportation:</strong> Cars, planes, and ships that burn fossil fuels add to global emissions.</li>
+                               </ul>`;
+                    break;
+                case 'natural-causes':
+                    content = `<h1>Natural Causes of Climate Change</h1>
+                               <p>Though human activities dominate recent climate change, natural factors also influence Earth's climate:</p>
+                               <ul>
+                                   <li><strong>Volcanic Eruptions:</strong> Large eruptions can inject particles into the atmosphere, temporarily cooling the planet.</li>
+                                   <li><strong>Solar Radiation:</strong> Variations in the sun's energy output affect Earth's temperature.</li>
+                                   <li><strong>Ocean Currents:</strong> Changes in ocean circulation can lead to shifts in climate patterns, such as El Niño and La Niña events.</li>
+                               </ul>`;
+                    break;
+                case 'ecosystem':
+                    content = `<h1>Effects on Ecosystems</h1>
+                               <p>Climate change disrupts ecosystems by altering habitats, food sources, and water availability. Rising temperatures and changing precipitation patterns can lead to habitat loss, forcing species to migrate or face extinction. This imbalance affects food chains and natural cycles like pollination.</p>`;
+                    break;
+                case 'weather-patterns':
+                    content = `<h1>Weather Patterns</h1>
+                               <p>Climate change intensifies weather extremes, causing:</p>
+                               <ul>
+                                   <li>More frequent and severe storms like hurricanes and cyclones.</li>
+                                   <li>Prolonged droughts in some regions and flooding in others.</li>
+                                   <li>Heatwaves becoming more common and intense, stressing ecosystems and human societies.</li>
+                               </ul>`;
+                    break;
+                case 'biodiversity':
+                    content = `<h1>Biodiversity</h1>
+                               <p>Global warming threatens biodiversity by accelerating species extinction. As temperatures rise and habitats shrink, species struggle to adapt quickly enough. Coral reefs, polar bears, and amphibians are particularly vulnerable, and entire ecosystems like rainforests and wetlands are at risk.</p>`;
+                    break;
+                case 'articles-blogs':
+                    content = `<h1>Articles or Blogs</h1>
+                               <p>Here are resources like articles and blogs that explain climate change and its impact:</p>
+                               <ul>
+                                   <li><a href="https://www.weforum.org">World Economic Forum: Explaining Climate Change with Charts</a></li>
+                                   <li><a href="https://www.carbonbrief.org">Carbon Brief: Climate Papers</a></li>
+                               </ul>`;
+                    break;
+                case 'graphical-visualizations':
+                    content = `<h1>Graphical Visualizations</h1>
+                               <p>Interactive graphs and visual data to better understand climate trends:</p>
+                               <ul>
+                                   <li><a href="https://www.nature.com">Nature: Climate and Health Visuals</a></li>
+                                   <li><a href="https://www.weforum.org">World Economic Forum: Climate Infographics</a></li>
+                               </ul>`;
+                    break;
+                case 'reports-studies':
+                    content = `<h1>Reports and Studies</h1>
+                               <p>Find detailed studies and reports on the science of climate change:</p>
+                               <ul>
+                                   <li><a href="https://www.nature.com">Nature: Quantifying Global Warming’s Human Cost</a></li>
+                                   <li><a href="https://www.thelancet.com">Lancet Countdown on Health and Climate Change</a></li>
+                               </ul>`;
+                    break;
+                case 'quiz':
+                    content = `<h1>Quiz</h1>
+                               <p>Test your knowledge about climate change with this quiz.</p>`;
+                    break;
+                case 'user-generated':
+                    content = `<h1>User Generated Content</h1>
+                               <p>Contribute your thoughts and ideas on climate change.</p>`;
+                    break;
+                case 'case-studies':
+                    content = `<h1>Case Studies</h1>
+                               <p>Learn from real-life examples of how climate change is impacting communities.</p>`;
+                    break;
+
+                default:
+                    content = `<h1>Welcome to Climate Education</h1>
+                               <p>Select an option from the left to view its content.</p>`;
+            }
+
+            mainContent.innerHTML = content;
+        }
+    </script>
+
+</body>
+
+</html>

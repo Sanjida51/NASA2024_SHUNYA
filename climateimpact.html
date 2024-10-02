@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Impact Data Form - MirrorOfClimate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for the blurred background image */
+        .background-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('image4.jpg') no-repeat center center fixed; /* Set your background image */
+            background-size: cover;
+            filter: blur(10px); /* Blur effect */
+            z-index: -1;
+        }
+
+        /* Overlay for a darker background effect */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+            z-index: 0;
+        }
+
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            padding: 20px; /* Padding for mobile devices */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for the form */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .submit-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ensure form is scrollable on smaller devices */
+        @media (max-height: 600px) {
+            .form-container {
+                max-height: 100%;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Blurred Background -->
+    <div class="background-blur"></div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Form Wrapper for Flexbox Centering -->
+    <div class="form-wrapper">
+        <div class="form-container">
+            <h2>Climate Impact Data Form</h2>
+            <form id="climate-impact-form">
+                <div class="form-group">
+                    <label for="electricity">Electricity Usage (kWh per month):</label>
+                    <input type="number" id="electricity" name="electricity" min="0" placeholder="Enter kWh" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle">Type of Vehicle:</label>
+                    <select id="vehicle" name="vehicle" required>
+                        <option value="" disabled selected>Select...</option>
+                        <option value="car">Car</option>
+                        <option value="motorcycle">Motorcycle</option>
+                        <option value="electric">Electric Vehicle</option>
+                        <option value="no-vehicle">No Vehicle</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="flights">Number of Flights per Year:</label>
+                    <input type="number" id="flights" name="flights" min="0" placeholder="Enter number of flights" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="waste">Waste Production (kg per week):</label>
+                    <input type="number" id="waste" name="waste" min="0" placeholder="Enter waste in kg" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="diet">Diet Type:</label>
+                    <select id="diet" name="diet" required>
+                        <option value="" disabled selected>Select...</option>
+                        <option value="omnivore">Omnivore</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="pescatarian">Pescatarian</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('climate-impact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const electricity = document.getElementById('electricity').value;
+            const vehicle = document.getElementById('vehicle').value;
+            const flights = document.getElementById('flights').value;
+            const waste = document.getElementById('waste').value;
+            const diet = document.getElementById('diet').value;
+
+            // For now, just log the data
+            console.log({
+                electricity,
+                vehicle,
+                flights,
+                waste,
+                diet
+            });
+
+            alert("Your Climate Impact Data has been submitted!");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+
+
+@media only screen and (min-width: 200px) and (max-width: 576px) {
+  
+
+                    .container {
+                      padding: 0 5px;
+                    }
+                  
+                    .header-container {
+                      flex-direction: column;
+                      align-items: flex-start;
+                      padding: 10px;
+                    }
+                  
+                    .logo {
+                      height: 40px;
+                    }
+                  
+                    header h1 {
+                      font-size: 1.25rem;
+                    }
+                  
+                    .search-container {
+                      margin-top: 10px;
+                      width: 100%;
+                      display: flex;
+                      flex-direction: column;
+                    }
+                  
+                    .search-input {
+                      width: 100%;
+                      margin-bottom: 10px;
+                    }
+                  
+                    .search-button {
+                      width: 100%;
+                    }
+                  
+                    nav {
+                      padding: 10px 0;
+                    }
+                  
+                    .nav-links {
+                      flex-direction: column;
+                      align-items: flex-start;
+                      padding: 0;
+                    }
+                  
+                    .nav-links li {
+                      margin: 5px 0;
+                    }
+                  
+                    #hero {
+                      padding: 50px 0;
+                    }
+                  
+                    #hero h2 {
+                      font-size: 2rem;
+                    }
+                  
+                    #hero p {
+                      font-size: 1rem;
+                    }
+                  
+                    #hero .btn {
+                      font-size: 0.9rem;
+                      padding: 8px 16px;
+                    }
+                  
+                    .section {
+                      padding: 20px 0;
+                    }
+                  
+                    .section h2 {
+                      font-size: 1.5rem;
+                    }
+                  
+                    .section p {
+                      font-size: 1rem;
+                    }
+                  
+                    footer {
+                      padding: 10px;
+                    }
+                  
+                    /* Image Styles */
+                    img {
+                      max-width: 100%;
+                      height: auto;
+                    }
+                  
+                    .banner-image-container img {
+                      width: 100%;
+                      height: auto;
+                    }
+                  
+                    .project-image {
+                      width: 100%;
+                      height: auto;
+                      margin-bottom: 10px;
+                    }
+                  
+                    /* Video Styles */
+                    #heroVideo {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover; /* Ensure the video covers the entire area */
+                      z-index: 1; /* Set the video behind the overlay */
+                  }
+                  }
+                  

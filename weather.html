@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
+    <style>
+        
+:root {
+    --gradient: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+}
+
+* {
+    box-sizing: border-box;
+    line-height: 1.25em;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    border-radius: 25px;
+    box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.5);
+    background-color: #222831;
+    color: #ffffff;
+    height: auto;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.weather-side {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    background-image: url('images/w.png');
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+    transition: transform 300ms ease;
+    background-size: cover;
+}
+
+.weather-side:hover {
+    transform: scale(1.1) perspective(1500px) rotateY(10deg);
+}
+
+.weather-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: var(--gradient);
+    border-radius: 25px 25px 0 0;
+    opacity: 0.4;
+}
+
+.date-container {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.date-dayname {
+    margin: 0;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.date-day {
+    display: block;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.location {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.weather-container {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+}
+
+.weather-temp {
+    margin: 0;
+    font-weight: 700;
+    font-size: 4em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.weather-desc {
+    margin: 0;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+
+.info-side {
+    position: relative;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.today-info {
+    padding: 15px;
+    margin: 0 25px 15px 25px;
+    box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color: #393e46;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.today-info > div {
+    flex: 1; 
+    text-align: center; 
+}
+
+.today-info > div .title {
+    font-weight: 700;
+    color: #00adb5;
+}
+
+.location-container {
+    padding: 0 25px 25px 25px;
+}
+
+.location-input {
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-image: var(--gradient);
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.location-input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 173, 255, 0.5);
+}
+
+.location-input::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+}
+
+
+.forecast-container {
+    display: flex; 
+    justify-content: space-around;
+    margin: 15px 0;
+    padding: 0 25px;
+    overflow-x: auto; 
+}
+
+.forecast {
+    background-color: #00adb5;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    margin: 0 5px; 
+}
+
+.forecast:hover {
+    transform: scale(1.05);
+}
+
+.forecast-icon {
+    width: 50px;
+    height: auto;
+}
+
+.forecast-temp {
+    font-size: 1.5em;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="weather-side">
+            <div class="weather-gradient"></div>
+            <div class="date-container">
+                <h2 class="date-dayname"></h2>
+                <span class="date-day"></span>
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="location"></span>
+            </div>
+            <div class="weather-container">
+                <span class="weather-icon"></span>
+                <h1 class="weather-temp"></h1>
+                <h3 class="weather-desc"></h3>
+            </div>
+        </div>
+        <div class="info-side">
+            <div class="today-info">
+                <div class="humidity">
+                    <span class="title"><i class="fas fa-temperature-high"></i> Temperature</span>
+                    <span class="value"></span>
+                    <div class="clear"></div>
+                </div>
+                <div class="wind">
+                    <span class="title"><i class="fa-solid fa-wind"></i> WIND</span>
+                    <span class="value"></span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="location-container">
+                <input class="location-input" type="text" id="city" value="Dhaka" placeholder="Enter city name...">
+            </div>
+
+            <div class="forecast-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('city').addEventListener('input', function () {
+            var city = this.value;
+            getWeather(city);
+        });
+
+        async function getWeather() {
+            try {
+                var city = document.getElementById('city').value;
+                const response = await axios.get('https://api.openweathermap.org/data/2.5/forecast', {
+                    params: {
+                        q: city,
+                        appid: '8efc8fdc2e667e0b7976e96cddb359a4',
+                        units: 'metric'
+                    },
+                });
+
+                const currentTemperature = response.data.list[0].main.temp;
+                document.querySelector('.weather-temp').textContent = Math.round(currentTemperature) + 'ºC';
+
+                const forecastData = response.data.list;
+
+                const dailyForecast = {};
+                forecastData.forEach((data) => {
+                    const day = new Date(data.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' });
+                    if (!dailyForecast[day]) {
+                        dailyForecast[day] = {
+                            temp: Math.round(data.main.temp),
+                            icon: data.weather[0].icon,
+                            humidity: data.main.humidity,
+                            windSpeed: data.wind.speed
+                        };
+                    }
+                });
+
+               
+                const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+                document.querySelector('.location').textContent = response.data.city.name;
+                document.querySelector('.weather-icon').innerHTML = `<img src="http://openweathermap.org/img/wn/${dailyForecast[today].icon}@2x.png" alt="Weather Icon">`;
+                document.querySelector('.humidity .value').textContent = dailyForecast[today].humidity + '%';
+                document.querySelector('.wind .value').textContent = dailyForecast[today].windSpeed + ' m/s';
+
+                // Display forecast for the next days
+                const forecastContainer = document.querySelector('.forecast-container');
+                forecastContainer.innerHTML = '';
+                for (const [day, details] of Object.entries(dailyForecast)) {
+                    if (day !== today) { 
+                        const forecast = document.createElement('div');
+                        forecast.className = 'forecast';
+                        forecast.innerHTML = `
+                            <h4>${day}</h4>
+                            <img class="forecast-icon" src="http://openweathermap.org/img/wn/${details.icon}@2x.png" alt="Weather Icon">
+                            <div class="forecast-temp">${details.temp}ºC</div>
+                        `;
+                        forecastContainer.appendChild(forecast);
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+            }
+        }
+
+        getWeather();
+    </script>
+</body>
+</html>

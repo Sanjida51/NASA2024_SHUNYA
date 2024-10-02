@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Assistant - MirrorOfClimate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('image4.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .chatbot-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: slideUp 1s ease-in-out forwards;
+        }
+
+        h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .option-button {
+            display: block;
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            text-align: center;
+            animation: buttonPop 1.5s ease-in-out forwards;
+        }
+
+        .option-button span {
+            display: inline-block;
+            transition: color 0.3s, transform 0.3s ease; /* Text color and scale animation */
+        }
+
+        .option-button.voice {
+            background-color: #28a745;
+        }
+
+        .option-button.visual {
+            background-color: #5683b6;
+        }
+
+        /* Hover effect for pop-up and text scaling */
+        .option-button:hover {
+            transform: translateY(-5px) scale(1.2); /* Pop up and slightly move upwards */
+            background-color: #0056b3;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for pop effect */
+        }
+
+        .option-button:hover span {
+            transform: scale(1.1); /* Make the text slightly bigger on hover */
+            color: #FFD700; /* Change text color on hover */
+        }
+
+        /* Active effect for press down */
+        .option-button:active {
+            transform: scale(1); /* Return to normal size on click */
+            background-color: #004080;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-button.voice:active {
+            background-color: #1e7e34;
+        }
+
+        .option-button.visual:active {
+            background-color: #46668a;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(0, 123, 255, 0.8), 0 0 30px rgba(0, 123, 255, 0.8);
+            }
+        }
+
+        @keyframes buttonPop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <h2>Choose Your Assistant</h2>
+        <button class="option-button voice" onclick="window.location.href='voice.html'">
+            <span>Voice Assistant</span>
+        </button>
+        <button class="option-button" onclick="window.location.href='tex.html'">
+            <span>Typing Assistant</span>
+        </button>
+        <button class="option-button visual" onclick="window.location.href='visualization.html'">
+            <span>Visualization</span>
+        </button>
+    </div>
+</body>
+</html>

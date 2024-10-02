@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="root.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-title">
+                <img src="logo.jpg" alt="United Nations Logo" class="logo">
+                <h1>MirrorOfClimate</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search" class="search-input">
+                <button class="search-button">🔍</button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="awareness.html">Climate Awareness</a></li>
+                <li><a href="#prediction">Greenhouse Prediction</a></li>
+                <li><a href="#report">AR Visualization</a></li>
+                <li><a href="#education">Climate Education</a></li>
+                <li><a href="chatbot_login.html">Chatbot</a></li>
+                <li><a href="alert.html">Climate Alert</a></li> 
+                <li><a href="help.html" >Help & Relief</a></li>
+                <li><a href="weather.html" >Weather Forecast</a></li>
+                <li><a href="weather2.html" >Earth Climate</a></li> 
+
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Chatbot Icon with Message Box -->
+    <div class="chatbot-container">
+        <div class="chatbot-msg-box">
+            <p>Hi! Need help with climate info? Click me!</p>
+        </div>
+
+        <a href="chatbot.html">
+            <div class="chatbot-icon">
+                <img src="chatbot (2).png" alt="Chatbot">
+            </div>
+        </a>
+    </div>
+    
+    <style>
+        /* Header styles */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgb(98, 169, 211);
+            color: white;
+        }
+    
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+    
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+    
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+    
+        .search-input {
+            padding: 5px;
+            font-size: 16px;
+        }
+    
+        .search-button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    
+        nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+    
+        /* Chatbot Icon with Message Box styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            text-align: center;
+        }
+    
+        .chatbot-msg-box {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            font-size: 14px;
+            max-width: 200px;
+            display: none; /* Initially hidden */
+        }
+    
+        .chatbot-icon {
+            background-color: #007BFF;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    
+        .chatbot-icon img {
+            width: 50px;
+            height: 50px;
+        }
+    
+        .chatbot-container:hover .chatbot-msg-box {
+            display: block; /* Show message box on hover */
+        }
+        
+    </style>
+    
+    
+    
+    
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <!-- Background Video -->
+            <video autoplay muted loop id="heroVideo">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Overlay Content -->
+            <div class="overlay">
+                <h2>Understand, Act, and Make a Change</h2>
+                <p>Join us in the fight against climate change through education, prediction, and action.</p>
+                <a href="#awareness" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Basic styles for the hero section */
+        #hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full height of the viewport */
+            overflow: hidden;
+        }
+    
+        #heroVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video covers the entire area */
+            z-index: 1; /* Set the video behind the overlay */
+        }
+    
+        /* Overlay styles */
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the text */
+            color: white; /* Change text color for visibility */
+            text-align: center; /* Center text */
+            z-index: 10; /* Ensure the text is above the video */
+        }
+    
+        .btn {
+            background-color: #007BFF; /* Button color */
+            color: white; /* Button text color */
+            padding: 10px 20px; /* Button padding */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Round corners */
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+    
+
+  
+
+<!-- Climate Initiatives Section -->
+<section id="initiatives" class="section" style="background-color: #FFFDE7;">
+    <div class="container">
+        <div class="content">
+            <div class="text">
+                <h2>Know about Climate Change Effect</h2>
+                <p>See how the huge ozone hole over Antarctica has grown in 2021 in this NASA video</p>
+                <span class="info-text">Click here to know more</span> <!-- Added text -->
+                <a href="https://www.space.com/antarctica-ozone-hole-2021-video" class="arrow-link">▶▶</a>
+            </div>
+            <div class="image">
+                <a href="https://www.space.com/antarctica-ozone-hole-2021-video"> <!-- Redirects to initiatives page when the image is clicked -->
+                    <img src="image14.jpg" alt="Climate Initiatives" />
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+   
+    <!-- Climate Awareness Section -->
+<section id="awareness" class="section" style="background-color: #E0F7FA;">
+    <div class="container">
+        <div class="content">
+            <div class="text">
+                <h2>Climate Awareness</h2>
+                <p>Explore interactive modules on climate change, the greenhouse effect, and more using AR/VR technology.</p>
+                <span class="info-text">Click here to know more</span>
+                <a href="awareness.html" class="arrow-link">▶▶</a>
+            </div>
+            <div class="image">
+                <img src="image1.jpeg" alt="Climate Awareness" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Greenhouse Effect Prediction Section -->
+<!-- <section id="prediction" class="section" style="background-color: #FFEBEE;">
+    <div class="container">
+        <div class="content reverse">
+            <div class="text">
+                <h2>Greenhouse Effect Prediction</h2>
+                <p>Use machine learning to predict future greenhouse gas emissions and understand the impact of climate actions.</p>
+                <span class="info-text">Click here to know more</span>
+                <a href="prediction.html" class="arrow-link">▶▶</a>
+            </div>
+            <div class="image">
+                <img src="image2.jpeg" alt="Greenhouse Effect Prediction" />
+            </div>
+            
+        </div>
+    </div>
+</section> -->
+
+<!-- AR Report Section -->
+<section id="report" class="section" style="background-color: #E1F5FE;">
+    <div class="container">
+        <div class="content reverse">
+            <div class="image">
+                <img src="image3.jpeg" alt="AR/VR Problem Report" />
+            </div>
+            <div class="text">
+                <h2>AR Solar Visualization</h2>
+                <p>AR Solar Visualization allows users to experience an immersive solar system simulation through their smartphone's back camera.</p>
+                <span class="info-text">Click here to know more</span>
+                <a href="report.html" class="arrow-link">▶▶</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Climate Education Section -->
+<section id="education" class="section" style="background-color: #C8E6C9;">
+    <div class="container">
+        <div class="content">
+            <div class="text">
+                <h2>Climate Education</h2>
+                <p>Learn the science behind climate change, its causes, and potential solutions. Explore interactive lessons and participate in global climate action projects.</p>
+                <a href="education.html" class="arrow-link">▶▶</a>
+            </div>
+            <div class="image">
+                <img src="image4.jpg" alt="Climate Education">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chatbot Section -->
+<section id="chatbot" class="section" style="background-color: #F1F8E9;">
+    <div class="container">
+        <div class="content">
+            
+            <div class="image">
+                <img src="earth.jpeg" alt="AI-powered Climate Chatbot" />
+            </div>
+            <div class="text">
+                <h2>Greenhouse Effect Prediction</h2>
+                <p>Use machine learning to predict future greenhouse gas emissions and understand the impact of climate actions.</p>
+                <span class="info-text">Click here to know more</span>
+                <a href="prediction.html" class="arrow-link">▶▶</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* General section styles */
+.section {
+    padding: 40px 0; /* Add padding for spacing */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.section:hover {
+    background-color: rgba(240, 240, 240, 0.7); /* Light gray background on hover */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add padding on sides */
+}
+
+.content {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Space between text and image */
+}
+
+.text {
+    flex: 1; /* Allow text to take available space */
+    padding: 20px; /* Add padding for text */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.text:hover {
+    background-color: rgba(169, 156, 228, 0.7); /* Change background color on hover */
+    border-radius: 8px; /* Optional: round corners on hover */
+}
+
+.image {
+    flex: 1; /* Allow image to take available space */
+    display: flex; /* Center the image */
+    justify-content: center; /* Center the image horizontally */
+}
+
+.image img {
+    width: 100%; /* Make the image fit the div */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the div area */
+    border-radius: 8px; /* Optional: round image corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.arrow-link {
+    display: inline-block; /* Make the link a block element */
+    margin-top: 10px; /* Add some space above the arrow */
+    font-size: 24px; /* Increase the font size for visibility */
+    color: #007BFF; /* Change the color for the arrow */
+    text-decoration: none; /* Remove underline */
+}
+
+.arrow-link:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+/* Reverse layout for specific sections */
+.content.reverse {
+    flex-direction: row-reverse; /* Reverse the order of content and image */
+}
+
+</style>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- Latest Climate News Section -->
+            <div class="latest-news">
+                <h3>Latest Climate News</h3>
+                <div class="news-box">
+                    <div class="news-item">
+                        <img src="image11.jpg" alt="News Image 1" class="news-image">
+                        <h4>Heavy rain, upstream water inundate 70 villages in Feni</h4>
+                        <p>Brief description of the news item goes here.</p>
+                        <a href="https://today.thefinancialexpress.com.bd/country/heavy-rain-upstream-water-inundate-70-villages-in-feni-1724170299" class="arrow-link"> >> </a> <!-- Link to detailed news -->
+                        <a href="https://today.thefinancialexpress.com.bd/country/heavy-rain-upstream-water-inundate-70-villages-in-feni-1724170299" class="description-link">Click here to see description</a>
+                    </div>
+                    <div class="news-item">
+                        <img src="image12.jpg" alt="News Image 2" class="news-image">
+                        <h4>Bangladesh begins screening for Mpox at Dhaka Airport as Global Cases Rise</h4>
+                        <p>Brief description of the news item goes here.</p>
+                        <a href="https://www.newsonair.gov.in/bangladesh-begins-screening-for-mpox-at-dhaka-airport-as-global-cases-rise/#:~:text=No%20mpox%20case%20has%20been,of" class="arrow-link"> >> </a> <!-- Link to detailed news -->
+                        <a href="https://www.newsonair.gov.in/bangladesh-begins-screening-for-mpox-at-dhaka-airport-as-global-cases-rise/#:~:text=No%20mpox%20case%20has%20been,of" class="description-link">Click here to see description</a>
+                    </div>
+                    <div class="news-item">
+                        <img src="image13.jpg" alt="News Image 3" class="news-image">
+                        <h4>Heat wave sweeping over country</h4>
+                        <p>Brief description of the news item goes here.</p>
+                        <a href="https://www.bssnews.net/news-flash/186089" class="arrow-link"> >> </a> <!-- Link to detailed news -->
+                        <a href="https://www.bssnews.net/news-flash/186089" class="description-link">Click here to see description</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <p>&copy; 2024 Climate Project. All Rights Reserved by Team SHUNYA.</p>
+        </div>
+    </footer>
+    
+    <style>
+        /* Footer styles */
+        footer {
+            background-color: rgb(109, 168, 216); /* Dark background for footer */
+            color: white; /* White text color */
+            padding: 20px 0; /* Add padding */
+            text-align: center; /* Center text */
+        }
+    
+        .latest-news {
+            background-color: #1E88E5; /* Blue background for the news section */
+            padding: 20px; /* Add padding to the news section */
+            border-radius: 8px; /* Round corners of the news section */
+            margin-top: 20px; /* Space above the news section */
+        }
+    
+        .latest-news h3 {
+            margin-bottom: 10px; /* Space below the heading */
+        }
+    
+        .news-box {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between news items */
+            flex-wrap: wrap; /* Wrap items if necessary */
+        }
+    
+        .news-item {
+            background-color: #444; /* Slightly lighter background for news items */
+            border: 1px solid #555; /* Border for news items */
+            border-radius: 8px; /* Rounded corners */
+            padding: 15px; /* Padding inside news item */
+            margin: 5px; /* Margin around news item */
+            flex: 1 1 calc(30% - 10px); /* Flex item with responsive sizing */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            transition: transform 0.2s; /* Animation on hover */
+            text-align: left; /* Align text to the left */
+        }
+    
+        .news-item:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+        }
+    
+        .news-item h4 {
+            margin: 0 0 5px; /* Space below news title */
+        }
+    
+        .news-item p {
+            margin: 0; /* Remove default margin */
+        }
+    
+        .news-image {
+            width: 100%; /* Make images responsive */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners for images */
+            margin-bottom: 10px; /* Space below the image */
+        }
+    
+        .arrow-link {
+            display: inline-block; /* Make the link a block element */
+            margin-top: 10px; /* Space above the arrow */
+            font-size: 16px; /* Adjust font size for visibility */
+            color: #FFD54F; /* Change color for the arrow */
+            text-decoration: none; /* Remove underline */
+        }
+    
+        .arrow-link:hover {
+            color: #FFC107; /* Darker color on hover */
+        }
+    
+        .description-link {
+            display: block; /* Make the description link a block element */
+            margin-top: 5px; /* Space above the description link */
+            font-size: 14px; /* Font size for visibility */
+            color: #FFD54F; /* Change color for the link */
+            text-decoration: none; /* Remove underline */
+        }
+    
+        .description-link:hover {
+            color: #FFC107; /* Darker color on hover */
+        }
+        /* Help Section styles */
+
+
+    </style>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
