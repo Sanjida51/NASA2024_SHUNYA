@@ -1,3 +1,4 @@
+/* Background video styling */
 #backgroundVideo {
     position: fixed;
     top: 0;
@@ -7,14 +8,17 @@
     object-fit: cover;
     z-index: -1; /* Ensures the video stays behind the content */
 }
+
+/* Reset default padding and margin */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body font and layout settings */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Keeps the font consistent across the page */
     background-color: #081028;
     display: flex;
     justify-content: center;
@@ -23,6 +27,7 @@ body {
     padding: 20px;
 }
 
+/* Container styling */
 .container {
     width: 100%;
     max-width: 500px;
@@ -33,6 +38,7 @@ body {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Heading */
 h1 {
     text-align: center;
     color: #333;
@@ -40,6 +46,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Input and output area styling */
 .input-area, .output-area {
     margin-top: 20px;
 }
@@ -61,6 +68,7 @@ textarea:focus {
     outline: none;
 }
 
+/* Button styling */
 button {
     display: block;
     width: 100%;
@@ -80,6 +88,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Output text styling */
 .output-area {
     margin-top: 20px;
     background-color: #e9ecef;
@@ -92,6 +101,23 @@ button:hover {
     font-size: 1.1rem;
     line-height: 1.5;
 }
+p#userInput {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+    cursor: text; /* Makes it clear that the element is editable */
+    outline: none;
+}
+
+p#userInput:focus {
+    border-color: #007bff;
+}
+
 
 /* Responsive Design */
 @media (max-width: 600px) {
